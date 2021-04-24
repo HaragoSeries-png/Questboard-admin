@@ -5,6 +5,7 @@ import seeQuest from '../views/seeQuest.vue'
 import Admin_approve from '../views/Admin_approve.vue'
 import adminFeed from '../views/adminFeed.vue'
 import report from '../views/report.vue'
+import Dashboard from '../views/Dashboard.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,7 +17,8 @@ const routes = [
   { path : '/quest/id/:id',component : seeQuest},
   { path : '/adminapprove',component : Admin_approve},
   { path : '/adminfeed',component : adminFeed},
-  { path : '/adminreport',component : report}
+  { path : '/adminreport',component : report},
+  { path : '/dashboard',component : Dashboard}
 
 ]
 

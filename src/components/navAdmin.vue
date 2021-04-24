@@ -39,7 +39,7 @@
         {title: "Feed", to: "/adminfeed"},
         {title: "Wating Approve", to: "/adminapprove"},
         {title: "Report", to: "/adminreport"},
-        {title: "Dashboard", to: "/admindashboard"},
+        {title: "Dashboard", to: "/dashboard"},
       ],
     }),
   }
