@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'https://questboard-server.herokuapp.com/api/admin'
+const url = '/api/admin'
 
 class adminService{
 

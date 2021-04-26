@@ -115,6 +115,7 @@ export default {
       });
       if(re){
         this.$emit('q_reElement',this.id_selected);
+        this.$router.go();
       }
       
     },

@@ -141,7 +141,7 @@ export default {
   created: async function() {
     await this.getinfoma();
 
-    this.questPic ='http://localhost:5000/' + this.quest.image;
+    this.questPic ='https://questboard-server.herokuapp.com/' + this.quest.image;
   },
   data() {
     return {
