@@ -38,6 +38,7 @@ export default {
         'monday',
         'tuesday',
         'wednesday',
+        
 
       ],
       value: [
@@ -45,7 +46,7 @@ export default {
         50,
         60,
         70,
-      ],
+      ], //จำนวนเควสที่ถูกสร้างในแต่ละวัน
     }),
   }
 </script>

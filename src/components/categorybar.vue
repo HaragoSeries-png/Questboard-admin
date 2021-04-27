@@ -1,23 +1,30 @@
 <template>
     <div id='chart'>
+      <apexchart width="500" type="bar" :options="options" :series="series"></apexchart>
     </div>
 </template>
 <script>
-var options = {
-  chart: {
-    type: 'bar'
-  },
-  series: [{
-    name: 'amount',
-    data: [20,30,40,50,100]
-  }],
-  xaxis: {
-    categories: ['Handicraft','Advice','Education','Accident','Housework','Find friends','Food and home economics','Traffic']
+
+export default {
+  name : 'categorybar',
+  data: function() {
+    return {
+      options: {
+        chart: {
+          id: 'vuechart-example'
+        },
+        xaxis: {
+          categories: ['Handicraft','Advice','Education','Accident','Housework','Find friend','Food and home','Traffic']
+        }
+      },
+      series: [{
+        name: 'quest amount',
+        data: [30, 40, 45, 50, 49, 60, 70, 91] //จำนวนเควสแต่ละประเภท
+      }]
+    }
   }
 }
-var chart = new ApexCharts(document.querySelector("#chart"), options);
 
-chart.render();
 </script>
 <style >
 #chart {
