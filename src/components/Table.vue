@@ -103,6 +103,7 @@ export default {
       });
       if(re){
         this.$emit('q_reElement',value)
+        this.$router.go();
       }
       
     },
