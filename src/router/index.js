@@ -6,8 +6,10 @@ import Admin_approve from '../views/Admin_approve.vue'
 import adminFeed from '../views/adminFeed.vue'
 import report from '../views/report.vue'
 import Dashboard from '../views/Dashboard.vue'
+import VueApexCharts from "vue-apexcharts";
 Vue.use(VueRouter)
-
+Vue.use(VueApexCharts)
+Vue.component('apexchart', VueApexCharts)
 const routes = [
   {
     path: '/',
@@ -29,3 +31,4 @@ const router = new VueRouter({
 })
 
 export default router
+
