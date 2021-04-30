@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-
+import adminService from "../../service/adminService";
 export default {
   name : 'categorybar',
   data: function() {
@@ -14,7 +14,7 @@ export default {
           id: 'vuechart-example'
         },
         xaxis: {
-          categories: ['Handicraft','Advice','Education','Accident','Housework','Find friend','Food and home','Traffic']
+          categories: ['Accident','Advice','Education','Find friend','Food and home','Handicraft','Housework','Traffic']
         }
       },
       series: [{
@@ -22,6 +22,15 @@ export default {
         data: [30, 40, 45, 50, 49, 60, 70, 91] //จำนวนเควสแต่ละประเภท
       }]
     }
+  },
+  methods:{
+    getdata:async function(){
+      let a = await adminService.getcatbar()
+      this.series[0].data = a.count
+    }
+  },
+  created(){
+    this.getdata()
   }
 }
 

@@ -32,14 +32,13 @@
 </div>
 </template>
 <script>
+// import adminService from "../../service/adminService";
 export default {
     data: () => ({
       labels: [
         'monday',
         'tuesday',
         'wednesday',
-        
-
       ],
       value: [
         20,
@@ -48,6 +47,12 @@ export default {
         70,
       ], //จำนวนเควสที่ถูกสร้างในแต่ละวัน
     }),
+    methods:{
+   
+    },
+    created:{
+
+    }
   }
 </script>
 <style>
