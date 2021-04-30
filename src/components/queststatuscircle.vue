@@ -1,6 +1,6 @@
 <template>
     <div id = 'chart'>
-      <apexchart width="500" type="donut" :options="options" :series="series"></apexchart>
+      <apexchart width="510" type="donut" :options="options" :series="series"></apexchart>
     </div>
 </template>
 <script>
@@ -14,12 +14,12 @@ export default {
       series: [30,30,30] //จำนวนของเควสแต่ละสถานะ
       
     }
+    
   }
 }
 </script>
 <style >
 #chart {
-  max-width: 650px;
-  margin: 35px auto;
+  margin-top: 50px;
 }
 </style>
