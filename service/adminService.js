@@ -32,6 +32,10 @@ class adminService{
         let a = await axios.get(url+'/group').then(res=>{return res.data})
         return a
     }
+    static async getreport(){
+        let a = await axios.get(url+'/contact').then(res=>{return res.data})
+        return a
+    }
 
 
 

@@ -3,23 +3,36 @@
       <h1>
           Report page
       </h1>
-      <div class="card">
-            <div class="header">
-                Title here
+      <div v-for="report in reports" :key="report._id" class="card">
+            <div class="by">
+                Send by : {{report.sender}}
             </div>
             <div class="detail">
-                Detail here
+                Detail : {{report.message}}
             </div>
-            <div class="by">
-                Send by here
-            </div>
+            
       </div>
   </div>
 </template>
 
 <script>
+import adminService from "../../service/adminService";
 export default {
-    name:"report"
+    name:"report",
+    methods:{
+        async getdata(){
+            let a = await adminService.getreport()
+            this.reports = a.log
+        }
+    },
+    data:function(){
+        return{
+            reports:[]
+        }      
+    },
+    created(){
+        this.getdata()
+    }
     
 }
 </script>
