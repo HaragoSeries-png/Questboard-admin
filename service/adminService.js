@@ -24,6 +24,14 @@ class adminService{
         let a = await axios.get(url+'/dash').then(res=>{return res.data})
         return a
     }
+    static async getdaily(){
+        let a = await axios.get(url+'/wee').then(res=>{return res.data})
+        return a
+    }
+    static async getcir(){
+        let a = await axios.get(url+'/group').then(res=>{return res.data})
+        return a
+    }
 
 
 

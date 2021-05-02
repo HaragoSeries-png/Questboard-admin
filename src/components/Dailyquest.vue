@@ -32,7 +32,7 @@
 </div>
 </template>
 <script>
-// import adminService from "../../service/adminService";
+import adminService from "../../service/adminService";
 export default {
     data: () => ({
       labels: [
@@ -48,10 +48,28 @@ export default {
       ], //จำนวนเควสที่ถูกสร้างในแต่ละวัน
     }),
     methods:{
-   
-    },
-    created:{
+      getdata:async function(){
 
+        let a = await adminService.getdaily()   
+        console.log(a)
+        let newdata = a.map((ac)=>{
+          console.log(ac)
+          return ac.qcount 
+        })
+        // console.log(newdata)
+        let newlabel = a.map(ac=>{
+          // console.log(ac._id)
+          return ac.createdAt
+        })
+        // console.log(newlabel)
+        this.labels= newlabel
+        // console.log(newaxis)
+        this.value = newdata   
+      }
+      
+    },
+    created(){
+      this.getdata()
     }
   }
 </script>
