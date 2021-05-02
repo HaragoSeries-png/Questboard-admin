@@ -10,24 +10,32 @@ export default {
   data: function() {
     return {
       options: {
-        chart: {
-          id: 'vuechart-example'
-        },
+        
         xaxis: {
           categories: ['Accident','Advice','Education','Find friend','Food and home','Handicraft','Housework','Traffic']
         }
       },
-      series: [{
-        name: 'quest amount',
-        data: [30, 40, 45, 50, 49, 60, 70, 91] //จำนวนเควสแต่ละประเภท
-      }],
+      series: [10,20,30,40,50,60,70,50],
       
     }
   },
   methods:{
     getdata:async function(){
+      
       let a = await adminService.getcatbar()
-      this.series[0].data = a.count
+      // console.log('a '+JSON.stringify(a.count))
+      let newdata = a.map((ac)=>{
+        return ac.count
+      })
+      let newaxis = a.map(ac=>{
+        // console.log(ac._id)
+        return ac._id
+      })
+      
+      this.series= [{data:newdata}]
+      // console.log(newaxis)
+      this.options = {xaxis:{categories:newaxis}}
+           
     }
   },
   created(){

@@ -20,6 +20,10 @@ class adminService{
         let a = await axios.get(url+'/getall').then(res=>{return res.data})
         return {quests:a} 
     }
+    static async getcatbar(){
+        let a = await axios.get(url+'/dash').then(res=>{return res.data})
+        return a
+    }
 
 
 
