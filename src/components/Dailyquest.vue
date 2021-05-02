@@ -1,77 +1,75 @@
 <template>
-    <div>
-    <v-card
-    class="mt-4 mx-auto"
-    max-width="1200"
-  >
-    <v-sheet
-      class="v-sheet--offset mx-auto"
-      color="cyan"
-      elevation="12"
-      max-width="calc(100% - 32px)"
-    >
-      <v-sparkline
-        :labels="labels"
-        :value="value"
-        color="white"
-        line-width="2"
-        padding="16"
-      ></v-sparkline>
-    </v-sheet>
-
-    <v-card-text class="pt-0">
-      <div class="title font-weight-light mb-2">
-        Quest created
-      </div>
-      <div class="subheading font-weight-light grey--text">
-        Daily quest created
-      </div>
-      <v-divider class="my-2"></v-divider>
-    </v-card-text>
-  </v-card>
+<div>
+  <apexchart type="line" height="350" :options="chartOptions" :series="series"></apexchart>
 </div>
+   
 </template>
 <script>
 import adminService from "../../service/adminService";
+
 export default {
-    data: () => ({
-      labels: [
-        'monday',
-        'tuesday',
-        'wednesday',
-      ],
-      value: [
-        20,
-        50,
-        60,
-        70,
-      ], //จำนวนเควสที่ถูกสร้างในแต่ละวัน
-    }),
+    data: function() {
+      return {
+        series: [{
+              data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+          }],
+        chartOptions: {
+          chart: {
+              height: 350,
+              type: 'line',
+              zoom: {
+              enabled: false
+              }
+              },
+          dataLabels: {
+              enabled: false,
+              style: {
+                color: "#E91E63"
+              }
+            },
+          stroke: {
+              curve: 'straight'
+            },
+          grid: {
+              row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+              },
+            },
+          xaxis: {
+              categories: ['',''],
+            }
+        }
+      }
+    },
     methods:{
       getdata:async function(){
-
-        let a = await adminService.getdaily()   
-        console.log(a)
-        let newdata = a.map((ac)=>{
-          console.log(ac)
-          return ac.qcount 
-        })
-        // console.log(newdata)
-        let newlabel = a.map(ac=>{
-          // console.log(ac._id)
-          return ac.createdAt
-        })
-        // console.log(newlabel)
-        this.labels= newlabel
-        // console.log(newaxis)
-        this.value = newdata   
-      }
+      let a = await adminService.getdaily()
+      // console.log('a '+JSON.stringify(a.qcount))
       
-    },
-    created(){
+      let newdata = a.map((ac)=>{
+        return ac.qcount
+      })
+      let newaxis = a.map(ac=>{
+       console.log(ac.createdAt)
+        return ac.createdAt
+      })
+      // newaxis = ['a','b','c','d','e','f','g']
+      this.series= [{data:newdata}]
+      console.log(newaxis[1] + JSON.stringify(newaxis))
+      this.chartOptions = {
+        chart: {height: 350,type: 'line',color: "red",zoom: {enabled: false}},
+        dataLabels: {enabled: false,style: {color: "#E91E63"}},
+        stroke: {curve: 'straight'},
+        grid: {row: {colors: ['#f3f3f3', 'transparent'],opacity: 0.5},},
+        xaxis: {categories:newaxis}
+      }
+    }, 
+  },
+   created(){
       this.getdata()
     }
-  }
+}
 </script>
 <style>
 .v-sheet--offset {

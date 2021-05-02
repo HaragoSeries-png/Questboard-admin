@@ -1,8 +1,28 @@
 <template>
 <div>
 <div id="daily">
-<dailyquest>
-</dailyquest>
+<v-card
+    class="mt-4 mx-auto"
+    max-width="1100"
+  >
+    <v-sheet
+      class="v-sheet--offset mx-auto"
+      color="white"
+      max-width="calc(100% )"
+    >
+    <dailyquest></dailyquest>
+    </v-sheet>
+
+    <v-card-text class="pt-0">
+      <div class="title font-weight-light mb-2">
+        Quest created per day
+      </div>
+      <div class="subheading font-weight-light grey--text">
+        Line chart that shows created quest in each day.
+      </div>
+      <v-divider class="my-2"></v-divider>
+    </v-card-text>
+  </v-card>
 </div>
 <div id="cate">
   <v-card
@@ -64,9 +84,10 @@
 import dailyquest from "../components/Dailyquest"
 import categorybar from "../components/categorybar"
 import queststatuscircle from "../components/queststatuscircle"
+
 export default {
   name : "Dailyquest",
-  components : {dailyquest,categorybar,queststatuscircle},
+  components : {dailyquest,categorybar,queststatuscircle,},
   
  
 }
