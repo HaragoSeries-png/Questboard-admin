@@ -46,7 +46,8 @@ export default {
       getdata:async function(){
       let a = await adminService.getdaily()
       // console.log('a '+JSON.stringify(a.qcount))
-      
+      a = bouncer(a)
+      console.log('b '+JSON.stringify(a))
       let newdata = a.map((ac)=>{
         return ac.qcount
       })
@@ -54,6 +55,14 @@ export default {
        console.log(ac.createdAt)
         return ac.createdAt
       })
+      function bouncer(arr) {
+        return arr.filter(function(item){
+          return !!item.createdAt;
+        });
+      }
+
+
+      newaxis 
       // newaxis = ['a','b','c','d','e','f','g']
       this.series= [{data:newdata}]
       console.log(newaxis[1] + JSON.stringify(newaxis))
