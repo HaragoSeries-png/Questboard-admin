@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = '/api/quest'
+const url = 'https://questboard-server.herokuapp.com/api/quest'
 
 class questService {
     static async createquest(text) {
