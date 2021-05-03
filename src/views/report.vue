@@ -10,7 +10,7 @@
     </v-card-text>
       <v-card-actions>
         <v-list-item  >
-          <v-list-item-content style="max-height:200px;overflow-y:auto;" >
+          <v-list-item-content style="height:150px;overflow-y:scroll;" >
             <v-card-textarea >Detail: {{report.message}} </v-card-textarea>
           </v-list-item-content>
         </v-list-item>
