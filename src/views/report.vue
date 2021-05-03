@@ -3,15 +3,28 @@
       <h1>
           Report page
       </h1>
-      <div v-for="report in reports" :key="report._id" class="card">
-            <div class="by">
-                Send by : {{report.sender}}
-            </div>
-            <div class="detail">
-                Detail : {{report.message}}
-            </div>
-            
-      </div>
+      
+           <v-card v-for="report in reports" :key="report._id" class="card"
+      color="#26c6da"
+      dark
+      max-width="600"
+    > 
+      <v-card-text class="font-weight-bold">
+       {{report.sender}}
+      </v-card-text>
+      <v-card-actions>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>{{report.message}}</v-list-item-title>
+          </v-list-item-content>
+          <v-row
+            align="center"
+            justify="end"
+          >
+          </v-row>
+        </v-list-item>
+      </v-card-actions>
+    </v-card>
   </div>
 </template>
 
@@ -41,9 +54,7 @@ export default {
 .card{
     margin-top:5%;
     width: 300px;
-    height: 250;
+    height:250px;
     border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
 }
 </style>
