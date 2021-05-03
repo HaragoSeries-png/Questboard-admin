@@ -4,24 +4,17 @@
           Report page
       </h1>
       
-           <v-card v-for="report in reports" :key="report._id" class="card"
+    <v-card v-for="report in reports" :key="report._id" class="card"
       color="#26c6da"
-      dark
-      max-width="600"
     > 
-      <v-card-text class="font-weight-bold">
-       {{report.sender}}
+      <v-card-text  class="sender">
+       Sender: {{report.sender}}
       </v-card-text>
       <v-card-actions>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>{{report.message}}</v-list-item-title>
+            <v-card-text class="card-content">Detail: {{report.message}}</v-card-text>
           </v-list-item-content>
-          <v-row
-            align="center"
-            justify="end"
-          >
-          </v-row>
         </v-list-item>
       </v-card-actions>
     </v-card>
@@ -53,8 +46,30 @@ export default {
 <style>
 .card{
     margin-top:5%;
-    width: 300px;
+    width: 600px;
     height:250px;
     border: 1px solid black;
+}
+.card-content{
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+    border-bottom: 2px solid #333333;
+}
+.sender{
+  padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    background: #eeeeee;
+    font-size: 1.0em;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+    border-bottom: 2px solid #333333;
 }
 </style>
