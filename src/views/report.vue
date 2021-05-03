@@ -6,14 +6,16 @@
       
     <v-card v-for="report in reports" :key="report._id" class="card"
       color="#26c6da"
+      height="300"
+      style="width:300;height:300"
     > 
       <v-card-text  class="sender">
        Sender: {{report.sender}}
       </v-card-text>
       <v-card-actions>
         <v-list-item>
-          <v-list-item-content>
-            <v-card-text class="card-content">Detail: {{report.message}}</v-card-text>
+          <v-list-item-content  class="card-content">
+            <v-card-textarea class="card-text">Detail: {{report.message}} </v-card-textarea>
           </v-list-item-content>
         </v-list-item>
       </v-card-actions>
@@ -58,6 +60,9 @@ export default {
     border-right: 2px solid #333333;
     border-left: 2px solid #333333;
     border-bottom: 2px solid #333333;
+}
+.card-text{
+  overflow: auto;
 }
 .sender{
   padding: 15px;
