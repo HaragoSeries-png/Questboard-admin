@@ -57,7 +57,7 @@
             </v-card-actions>
             <v-divider></v-divider>
              <v-card-actions class="pa-4">
-              Create by 
+              Created by 
               <v-spacer></v-spacer>
               <span style="text-align:center;"> {{ quest.questname }}</span>
             </v-card-actions>
@@ -75,21 +75,17 @@
               <span style="text-align:center;"> {{ quest.reward }}</span>
             </v-card-actions>
             <v-card-actions class="pa-4">
-              Date
+              Deadline
               <v-spacer></v-spacer>
               <span style="font-size:18px;"> {{ quest.date }}</span>
-              <v-spacer></v-spacer>
-              <span style="font-size:18px;">{{ quest.tstart }} </span>
-              <v-spacer></v-spacer>
-              <span style="font-size:18px;">{{ quest.tend }} </span>
             </v-card-actions>
             <div class="pa-4" style="margin-top:-1%;">
-              <div>
-                Details
+              <div style="margin-left:-91%">
+              Details
               </div>
 
               <v-card width="650" height="100" style="margin-top:5%;overflow-x:auto;padding:16px;">
-                <p style="font-size:18px;text-indent:90px; ">
+                <p style="font-size:18px;text-indent:50px; ">
                   {{ quest.questdetail }}
                 </p>
               </v-card>
