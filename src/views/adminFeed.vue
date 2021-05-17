@@ -10,7 +10,7 @@
 <script>
 import adminService from "../../service/adminService";
 
-import QuestTable from "@/components/Table.vue";
+import QuestTable from "@/components/Feedtable.vue";
 
 export default {
   components: {
