@@ -137,7 +137,7 @@ export default {
   created: async function() {
     await this.getinfoma();
 
-    this.questPic ='https://questboard-server.herokuapp.com/' + this.quest.image;
+    this.questPic = this.quest.image;
   },
   data() {
     return {
