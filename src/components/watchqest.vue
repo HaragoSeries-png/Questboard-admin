@@ -9,13 +9,10 @@
               <div class="pic">
                 <v-img height="400" width="370" :src="questPic"></v-img>
               </div>
-            </center>
-         
-            <center>
-              
-                 <v-card-actions style="float:center;" class="Rate">
-                  <span style="color:#43a047;font-weight:800">COMPLETE</span>
-           
+            </center>        
+            <center>              
+                <v-card-actions style="float:center;" class="Rate">
+                <span style="color:#43a047;font-weight:800">{{quest.status}}</span>           
               <span class="grey--text text--lighten-2 caption mr-2">
           
               </span>
@@ -51,6 +48,7 @@
                 color="yellow accent-4"
                 dense
                 half-increments
+                readonly
                 hover
                 size="20"
               ></v-rating>
@@ -59,7 +57,7 @@
              <v-card-actions class="pa-4">
               Created by 
               <v-spacer></v-spacer>
-              <span style="text-align:center;"> {{ quest.questname }}</span>
+              <span style="text-align:center;"> {{ owner }}</span>
             </v-card-actions>
          
 
@@ -128,7 +126,8 @@ export default {
       });
       this.quest = re.quest;
       console.log("complete");
-      console.log(this.quest);
+      console.log(re.owner.name);
+      this.owner = re.owner.name
     },
     toFeed() {
       this.$router.push("/adminfeed");
@@ -144,6 +143,7 @@ export default {
       quest: "",
       questPic: "",
       questRate: 3,
+      owner:'',
       time: 2,
       rating: 4.3,
     };
